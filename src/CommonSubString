@@ -1,0 +1,39 @@
+PseudoCode
+
+Main Class:
+
+initialize text1 to "gears of war"
+initialize text2 to "History of warriors"
+Display "Longest Common Substring" plus CommonSubString(text1, text2)
+
+String CommonSubString (String text1, String text2) Class:
+
+initialize integer a to text1.length
+initialize integer b to text2.length
+initialize integer first to 0
+initialize integer last to a
+initialize 2D integer array named target to new integer a+1 b+1
+
+Nested Loops:
+FOR initialize integer i to 1
+    i is less then or equal to a
+    increment i
+    FOR initialize integer j to 1
+        j is less then or equal to b
+        increment j
+        IF character at position(i-1) in text1 is equal to character at j-1 in text2
+        THEN set target to value of target[i-1][j-1] plus 1
+            IF target is greater then first
+                THEN set first to target
+                     set last to i
+
+             END IF
+         END IF
+      END FOR
+    END FOR
+
+   IF first is equal to 0
+    THEN return " "
+ END IF
+
+ return substring method on text1 starting from last to first, up to last

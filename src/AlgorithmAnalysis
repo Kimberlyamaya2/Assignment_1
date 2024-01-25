@@ -1,0 +1,119 @@
+For each of the algorithms you wrote for problems 1-5, explain their time complexity using
+Big-O and Big-Ω notation. Explain how you arrived at your answer.
+
+5. Big O notation: n is nums.length
+     for(int i = 0; i < nums.length; i++){         --------> O(n)
+              if(nums[i] != val){                  --------> O(1)
+                nums[k] = nums[i];                 --------> O(1)
+                k++;                               --------> O(1)
+              }
+              else{
+                 if(val < nums[i]){                 --------> O(1)
+                      return i;                     --------> O(1)
+                 }
+             }
+         }
+          return k;                                 --------> O(1)
+
+    Overall, the time complexity is O(n). Since we are starting with a for loop where i is less than n. The rest loops and
+       statements are constants, so we can disregard them. The code uses a single loop that iterates through the array n times.
+       It runs in a linear time to the array length. Big Theta: O(n)
+
+4.  Big O notation: n is A.length
+        for (int i = 0; i < A.length; i++){              --------> O(n)
+               long term = (3 * num1) + ( 2 * num2);     --------> O(1)
+               num1 = num2;                              --------> O(1)
+               num2 = term;                              --------> O(1)
+               if(A[i] == nums){                         --------> O(1)
+                   System.out.print("Output: ");
+                   return i + 1;                          --------> O(1)
+               }
+               else{
+                   if (nums < A[i]){                      --------> O(1)
+                       System.out.print("Output: ");
+                       return i;                          --------> O(1)
+                   }
+               }
+           }
+           System.out.println();
+           return A.length;                               --------> O(1)
+ Overall, the time complexity is O(n). Since we are starting with a for loop where i is less than n. The rest loops and
+       statements are constants, so we can disregard them. The code uses a single loop that goes through the array once.
+       It runs in a linear time to the array length. Big Theta: O(n)
+
+ 3. Big O notation: n is nums
+  for (int i = 0; i < nums; i++){                       --------> O(n)
+             long term = (3 * num1) + ( 2 * num2);      --------> O(1)
+                System.out.print( "," + term );
+                     num1 = num2;                       --------> O(1)
+                     num2 = term;                       --------> O(1)
+         }
+         System.out.println();
+
+The time complexity is O(n). Since we are starting with a for loop where i is less than n.
+    Within the loop there are constant time operations. The overall time complexity of the code is O(n),
+    where n is the number of iterations in the loop. Big Theta: O(n)
+
+2. Big O notation: n is a; m is b
+FOR initialize integer i to 1
+       i is less then or equal to a
+       increment i
+       FOR initialize integer j to 1
+           j is less then or equal to b
+           increment j
+           IF character at position(i-1) in text1 is equal to character at j-1 in text2
+           THEN set target to value of target[i-1][j-1] plus 1
+               IF target is greater then first
+                   THEN set first to target
+                        set last to i
+               END IF
+            END IF
+         END FOR
+       END FOR
+                      IF first is equal to 0
+                           THEN return " "
+                        END IF
+          return substring method on text1 starting from last to first, up to last
+
+           for(int i =1; i <= a; i++){                                      --------> O(n)
+                                                                                                --------> O(n * m)
+                      for(int j = 1; j <= b; j++){                          --------> O(n)
+
+                          if(text1.charAt(i-1) == text2.charAt(j-1)){       --------> O(1)
+                              target[i][j] = target[i-1][j-1] + 1;          --------> O(1)
+                          }
+                          if(target[i][j] > first){                        --------> O(1)
+                              first = target[i][j];                        --------> O(1)
+                              last = i;                                     --------> O(1)
+                          }
+                      }
+                  }
+                  if (first == 0){                                           --------> O(1)
+                      return " ";                                            --------> O(1)
+                  }
+                  return text1.substring(last - first, last);                    --------> O(1)
+
+ The time complexity is O(n * m). Since we are starting with a for loop where i is less than or equal to n(a).
+ Then proceed into a nested for loop where j is less than or equal to m(b).
+ Within the loop there are constant time operations.
+ The overall time complexity of the code is O(n * m). Because n is a and b, but it can't be n^2 because of the different values.
+ While the Big Theta is O(b).
+
+ 1. Big O notation: n is a; m is b
+
+         for (int i = 1; i <= a; i++) {                  --------> O(n)
+                                                                                 --------> O(n * m)
+             for (int j = 1; j <= b; j++) {              --------> O(n)
+                 if (text1.charAt(i - 1) == text2.charAt(j - 1)) {           --------> O(1)
+                     c[i][j] = c[i - 1][j - 1] + 1;                          --------> O(1)
+                 } else {
+                     c[i][j] = Math.max(c[i - 1][j], c[i][j - 1]);           --------> O(1)
+                 }
+             }
+         }
+         return c[a][b];                                                     --------> O(1)
+
+The time complexity is O(n * m). We are starting with a for loop where i is less than or equal to n(a). Then proceed into a nested for loop
+ where j is less than or equal to n(b). Within the loop there are constant time operations. We can see that the inner for loop is O(m) and the
+ outer loop is also O(n). O(m) * O(n) = O(n * m)
+ The overall time complexity of the code is O(n * m). Big theta is O(b).
